@@ -1,4 +1,4 @@
-'''Multiplication Command'''
+'''Multiply Command'''
 from app.command import Command
 
 class MultiplyCommand(Command):

@@ -1,5 +1,6 @@
 '''Subtraction Command'''
 from app.command import Command
+
 class SubtractCommand(Command):
     def __init__(self, a, b):
         self.a = a

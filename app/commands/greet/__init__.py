@@ -1,7 +1,9 @@
-'''Greeting Command'''
+'''Greetings Command'''
 from app.command import Command
 
 
 class GreetCommand(Command):
     def execute(self):
-        print("Hello World!")
+        print("     Hello! Welcome To Interactive Calculator")
+def register():
+    return GreetCommand

@@ -41,3 +41,23 @@ class CommandHandler:
             return command_instance
         else:
             raise ValueError(f"Failed to create command: {plugin_name}")
+    def list_commands(self):
+        print("              ")
+        print("Available Calculator Commands:")
+        print(" ")
+
+        for key in self.commands:
+            print(f"        Type {key} : To Perform {key} Operation ")
+        print(" ")
+
+
+    # Creating a dictionary
+    my_Menu_dict = {
+        'Greet' : '1',
+        'Menu' : '2',
+        'Add' : '3',
+        'Subtract' : '4',
+        'Multiply' : '5',
+        'Divide' : '6',
+        'Exit' :  '7'
+    }
