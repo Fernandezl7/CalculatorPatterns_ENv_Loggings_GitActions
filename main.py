@@ -20,7 +20,7 @@ class OperationCommand:
 def calculate_and_print(a, b, operation_name):
     try:
         a_decimal, b_decimal = map(Decimal, [a, b])
-        command = OperationCommand(Calculator, operation_name, a_decimal, b_decimal)
+        command = OperationCommand(Calculator(), operation_name, a_decimal, b_decimal)
         result = command.execute()
         print(f"The result of {a} {operation_name} {b} is equal to {result}")
     except InvalidOperation:
@@ -33,24 +33,33 @@ def calculate_and_print(a, b, operation_name):
         print(f"An error occurred: {e}")
 
 def main():
-    if len(sys.argv) == 2:
-        app_instance = App()  
-        app_instance.start()  
-    elif len(sys.argv) == 4:
-        _, a, b, operation_name = sys.argv
-        calculate_and_print(a, b, operation_name)
-    else:
-        print("        Welcome to Command-Plugin based Calculator Application:    ")
-        print("           ")
-        print("Usage of this Calculator:")
-        print("    To start the Interactive Calculator: python main.py I ")
-        print("    To perform the calculation Using Direct Commamd Line:")
-        print("       python main.py <number1> <number2> add")
-        print("       python main.py <number1> <number2> subtract")
-        print("       python main.py <number1> <number2> multiply")
-        print("       python main.py <number1> <number2> divide")
+    print("Interactive Calculator Mode:")
+    while True:
+        # Get input from the user
+        try:
+            a = input("Enter the first number (or type 'exit' to quit): ")
+            if a.lower() == 'exit':
+                break
+            
+            b = input("Enter the second number: ")
+            operation = input("Enter the operation (add, subtract, multiply, divide): ").lower()
 
-        sys.exit(1)
+            # Validate inputs
+            a_decimal = Decimal(a)
+            b_decimal = Decimal(b)
+            
+            if operation not in ['add', 'subtract', 'multiply', 'divide']:
+                print("Invalid operation! Please enter one of: add, subtract, multiply, divide.")
+                continue
 
+            # Perform the calculation and print the result
+            calculate_and_print(a, b, operation)
+        
+        except InvalidOperation:
+            print("Invalid number input, please enter valid numbers.")
+        except ZeroDivisionError:
+            print("Error: Division by zero.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 if __name__ == '__main__':
     main()
