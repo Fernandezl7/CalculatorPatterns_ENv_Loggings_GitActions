@@ -1,6 +1,6 @@
 import sys
 from decimal import Decimal, InvalidOperation
-from calculator import Calculator  # Assuming Calculator is defined as shown previously
+from app.calculator import Calculator  # Assuming Calculator is defined as shown previously
 
 class OperationCommand:
     def __init__(self, calculator, operation_name, a, b):
