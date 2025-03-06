@@ -1,9 +1,11 @@
-'''Test Main file'''
-# pylint: disable=line-too-long
+""" TEST Main File """
 from decimal import Decimal
 from unittest.mock import patch, MagicMock
+#pylint:disable=invalid-name
 import pytest
-from main import OperationCommand, main, calculate_and_print  # Ensure this import matches your project structure
+#from app.calculator import Calculator
+from main import OperationCommand, main,calculate_and_print
+
 # Parameterize the test function to cover different operations and scenarios, including errors
 @pytest.mark.parametrize("a_string, b_string, operation_string, expected_string", [
     ("5", "3", 'add', "The result of 5 add 3 is equal to 8"),
@@ -16,11 +18,12 @@ from main import OperationCommand, main, calculate_and_print  # Ensure this impo
     ("5", "b", 'subtract', "Invalid number input: 5 or b is not a valid number.")  # Testing another invalid number input
 ])
 def test_calculate_and_print(a_string, b_string, operation_string,expected_string, capsys):
-    '''Test test_calculate and print functions'''
+    """ TEST test_calculate_and_print Function """
     calculate_and_print(a_string, b_string, operation_string)
     captured = capsys.readouterr()
     assert captured.out.strip() == expected_string
-    # Mock Calculator methods to simplify testing
+
+# Mock Calculator methods to simplify testing
 class MockCalculator:
     """ TEST test_calculate_and_print Function """
 
