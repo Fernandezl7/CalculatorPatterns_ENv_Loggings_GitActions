@@ -1,4 +1,5 @@
 import importlib
+import logging
 from abc import ABC, abstractmethod
 
 # Command interface definition
@@ -47,6 +48,8 @@ class CommandHandler:
         print(" ")
 
         for key in self.commands:
+            all_commands = '\n\n' + '\n'.join([f"    Type {key} : To Perform {key} Operation" for key in self.commands]) + '\n'
+            logging.info(all_commands)
             print(f"        Type {key} : To Perform {key} Operation ")
         print(" ")
 

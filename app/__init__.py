@@ -1,5 +1,6 @@
 import pkgutil
 import importlib
+import logging
 from app.command import CommandHandler
 from app.command import Command
 
@@ -73,8 +74,10 @@ class App:
                 elif choice == 'Menu':
                     result = self.command_handler.execute_command('Menu')
                 else:
+                    logging.info("Invalid choice. Please select a valid option.")
                     print("Invalid choice. Please select a valid option.")
             except ZeroDivisionError:
+                logging.info("Error: Division by zero")
                 print("Error: Division by zero.")
             except ValueError as e:
                 print(e)

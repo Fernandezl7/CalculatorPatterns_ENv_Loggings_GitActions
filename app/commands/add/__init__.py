@@ -1,4 +1,5 @@
 '''Add Command'''
+import logging
 from app.command import Command
 
 class AddCommand(Command):
@@ -8,6 +9,6 @@ class AddCommand(Command):
 
     def execute(self):
         print(f"    The result of adding {self.a} + {self.b} = {self.a + self.b}")
-
+        logging.info(f"The result of adding {self.a} + {self.b} = {self.a + self.b}")
 def register():
     return AddCommand
