@@ -19,3 +19,11 @@
 ## 5. (Bonus Explor Multiprocessing Capabilities:
 
 * Investigate adding multiprocessing features to enable commands/plugins to run on separate cores. This enhancement is a forward-looking feature that prepares your application for future scalability and performance improvements.
+
+## 6 Git Actions, ENV, Logging, Icecream
+
+* GitHub Actions to run your tests on GitHub automaticly, which is your first steps toward having an understanding of Deveops.
+
+* Environmnent variables = Environment variables are also important because they are how you provide input to your program. You use them to store passwords, api keys, etc... 
+
+* Logging - Logging is how your program outputs information to external systems and is important for tracking application usage, security, and development, since you can use logging to output data like a print statement
